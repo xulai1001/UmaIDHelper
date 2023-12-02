@@ -19,31 +19,17 @@ namespace UmaIDHelper
 
         private void saveConfig(TestAiScoreConfig conf)
         {
-            AiConfig aiConf = new AiConfig();
             var settings = new JsonSerializerSettings {
                 NullValueHandling = NullValueHandling.Ignore,
                 Formatting = Formatting.Indented
             };
-            if (File.Exists("aiConfig.json"))
-            {
-                try
-                {
-                    
-                    aiConf = JsonConvert.DeserializeObject<AiConfig>(File.ReadAllText("aiConfig.json", Encoding.UTF8), settings);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("载入现有aiConfig.json出错，使用默认配置\n" + e.Message, "载入配置出错");
-                }
-            }
-            aiConf.testAiScore = conf;
             try
             {
-                File.WriteAllText("aiConfig.json", JsonConvert.SerializeObject(aiConf, settings), Encoding.UTF8);
+                File.WriteAllText("testConfig.json", JsonConvert.SerializeObject(conf, settings), Encoding.UTF8);
             }
             catch (Exception e)
             {
-                MessageBox.Show("保存aiConfig.json出错\n" + e.Message, "保存配置出错");
+                MessageBox.Show("保存testConfig.json出错\n" + e.Message, "保存配置出错");
             }
         }
 
@@ -148,7 +134,7 @@ namespace UmaIDHelper
             TestAiScoreConfig conf = new TestAiScoreConfig
             {
                 umaId = selectedUma.gameId,
-                cards = selectedCards.Select(x => x.cardId * 10 + x.breakLevel).ToList(),
+                cards = selectedCards.Select(x => x.cardIdWithBreak).ToList(),
                 zhongmaBlue = new List<int>
                 {
                     (int)numericUpDown1.Value,
@@ -185,6 +171,7 @@ namespace UmaIDHelper
             int zhongmaCount = conf.zhongmaBlue.Sum();
             if (zhongmaCount > 18)
                 MessageBox.Show("蓝因子数量>18", "请检查");
+            conf.cardHistory = DB.cardHistory;
             saveConfig(conf);
             runTest();
         }

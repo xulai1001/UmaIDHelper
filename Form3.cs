@@ -36,6 +36,7 @@ namespace UmaIDHelper
             {
                 selection = (CardDataEntry)listBox1.SelectedItem;
                 selection.breakLevel = (int)numericUpDown1.Value;
+                DB.updateCardHistory(selection.cardIdWithBreak);
                 DialogResult = DialogResult.OK;
             }
         }
@@ -46,8 +47,37 @@ namespace UmaIDHelper
             {
                 selection = (CardDataEntry)listBox1.SelectedItem;
                 selection.breakLevel = (int)numericUpDown1.Value;
+                DB.updateCardHistory(selection.cardIdWithBreak);
                 DialogResult = DialogResult.OK;
             }
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            var result = DB.cardHistory.Select(x => DB.getCard(x)).ToList();
+            listBox2.DataSource = result;
+            listBox2.DisplayMember = "explainWithBreak";
+            textBox1.Text = "";
+            numericUpDown1.BackColor = Color.White;
+            numericUpDown1.Value = 4;
+        }
+
+        private void listBox2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listBox2.SelectedItems.Count > 0)
+            {
+                selection = (CardDataEntry)listBox2.SelectedItem;
+                DB.updateCardHistory(selection.cardIdWithBreak);
+                DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selection = (CardDataEntry)listBox2.SelectedItem;
+            textBox1.Text = selection.cardName;
+            numericUpDown1.Value = selection.breakLevel;
+            numericUpDown1.BackColor = Color.Yellow;
         }
     }
 }

@@ -35,8 +35,11 @@
             label2 = new Label();
             numericUpDown1 = new NumericUpDown();
             button1 = new Button();
+            groupBox2 = new GroupBox();
+            listBox2 = new ListBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -74,9 +77,9 @@
             listBox1.FormattingEnabled = true;
             listBox1.HorizontalScrollbar = true;
             listBox1.ItemHeight = 21;
-            listBox1.Location = new Point(16, 22);
+            listBox1.Location = new Point(6, 22);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(460, 172);
+            listBox1.Size = new Size(484, 172);
             listBox1.TabIndex = 0;
             listBox1.DoubleClick += listBox1_DoubleClick;
             // 
@@ -112,11 +115,35 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(listBox2);
+            groupBox2.Location = new Point(12, 266);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(496, 226);
+            groupBox2.TabIndex = 6;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "常用卡";
+            // 
+            // listBox2
+            // 
+            listBox2.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            listBox2.FormattingEnabled = true;
+            listBox2.HorizontalScrollbar = true;
+            listBox2.ItemHeight = 21;
+            listBox2.Location = new Point(6, 22);
+            listBox2.Name = "listBox2";
+            listBox2.Size = new Size(484, 193);
+            listBox2.TabIndex = 1;
+            listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
+            listBox2.MouseDoubleClick += listBox2_MouseDoubleClick;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(520, 271);
+            ClientSize = new Size(520, 504);
+            Controls.Add(groupBox2);
             Controls.Add(button1);
             Controls.Add(numericUpDown1);
             Controls.Add(label2);
@@ -127,8 +154,10 @@
             MinimizeBox = false;
             Name = "Form3";
             Text = "查询支援卡";
+            Load += Form3_Load;
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            groupBox2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -142,5 +171,7 @@
         private Label label2;
         private NumericUpDown numericUpDown1;
         private Button button1;
+        private GroupBox groupBox2;
+        private ListBox listBox2;
     }
 }

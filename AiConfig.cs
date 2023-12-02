@@ -10,11 +10,12 @@ namespace UmaIDHelper
     {
         public int umaId;
         public int umaStars = 5;
+        public int totalGames;
         public List<int> cards;
         public List<int> zhongmaBlue;
         public List<int> zhongmaBonus;
         public List<bool> allowedDebuffs;
-        public int totalGames;
+        public List<int> cardHistory;
     }
 
     public class AiConfig
