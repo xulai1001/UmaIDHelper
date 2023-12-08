@@ -68,7 +68,7 @@
             richTextBox1.ScrollBars = RichTextBoxScrollBars.None;
             richTextBox1.Size = new Size(256, 138);
             richTextBox1.TabIndex = 2;
-            richTextBox1.Text = "马娘ID查询/测卡辅助工具\n\n测卡的简单GUI\n\nGithub: ";
+            richTextBox1.Text = "马娘ID查询/测卡辅助工具\nUmaAI测卡的简单界面\n本项目Github: https://github.com/xulai1001/UmaIDHelper\nUmaAI: https://github.com/hzyhhzy/UmaAi";
             // 
             // AboutWindow
             // 

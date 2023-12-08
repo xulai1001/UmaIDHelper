@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             textBox1 = new TextBox();
@@ -61,6 +62,8 @@
             label4 = new Label();
             label3 = new Label();
             groupBox4 = new GroupBox();
+            lblInherit = new Label();
+            label19 = new Label();
             numericUpDown11 = new NumericUpDown();
             numericUpDown10 = new NumericUpDown();
             numericUpDown9 = new NumericUpDown();
@@ -73,6 +76,15 @@
             label12 = new Label();
             label9 = new Label();
             label11 = new Label();
+            label14 = new Label();
+            numericUpDown12 = new NumericUpDown();
+            label15 = new Label();
+            label16 = new Label();
+            radioButton1 = new RadioButton();
+            radioButton2 = new RadioButton();
+            label17 = new Label();
+            label18 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -88,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown12).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -187,9 +200,9 @@
             groupBox2.Controls.Add(checkBox3);
             groupBox2.Controls.Add(checkBox2);
             groupBox2.Controls.Add(checkBox1);
-            groupBox2.Location = new Point(12, 396);
+            groupBox2.Location = new Point(12, 420);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(261, 106);
+            groupBox2.Size = new Size(261, 144);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "第二年凯旋门不解除的Debuff";
@@ -197,7 +210,7 @@
             // checkBox8
             // 
             checkBox8.AutoSize = true;
-            checkBox8.Location = new Point(183, 75);
+            checkBox8.Location = new Point(183, 109);
             checkBox8.Name = "checkBox8";
             checkBox8.Size = new Size(87, 21);
             checkBox8.TabIndex = 7;
@@ -209,7 +222,7 @@
             checkBox7.AutoSize = true;
             checkBox7.Checked = true;
             checkBox7.CheckState = CheckState.Checked;
-            checkBox7.Location = new Point(96, 75);
+            checkBox7.Location = new Point(96, 109);
             checkBox7.Name = "checkBox7";
             checkBox7.Size = new Size(87, 21);
             checkBox7.TabIndex = 6;
@@ -219,7 +232,7 @@
             // checkBox6
             // 
             checkBox6.AutoSize = true;
-            checkBox6.Location = new Point(15, 75);
+            checkBox6.Location = new Point(15, 109);
             checkBox6.Name = "checkBox6";
             checkBox6.Size = new Size(74, 21);
             checkBox6.TabIndex = 5;
@@ -229,7 +242,7 @@
             // checkBox5
             // 
             checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(183, 48);
+            checkBox5.Location = new Point(183, 66);
             checkBox5.Name = "checkBox5";
             checkBox5.Size = new Size(39, 21);
             checkBox5.TabIndex = 4;
@@ -239,7 +252,7 @@
             // checkBox4
             // 
             checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(96, 48);
+            checkBox4.Location = new Point(96, 66);
             checkBox4.Name = "checkBox4";
             checkBox4.Size = new Size(39, 21);
             checkBox4.TabIndex = 3;
@@ -249,7 +262,7 @@
             // checkBox3
             // 
             checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(15, 48);
+            checkBox3.Location = new Point(15, 66);
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new Size(39, 21);
             checkBox3.TabIndex = 2;
@@ -259,7 +272,7 @@
             // checkBox2
             // 
             checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(146, 21);
+            checkBox2.Location = new Point(146, 27);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(39, 21);
             checkBox2.TabIndex = 1;
@@ -269,7 +282,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(50, 21);
+            checkBox1.Location = new Point(50, 27);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(39, 21);
             checkBox1.TabIndex = 0;
@@ -279,26 +292,26 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(279, 441);
+            label2.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(279, 523);
             label2.Name = "label2";
-            label2.Size = new Size(74, 21);
+            label2.Size = new Size(65, 20);
             label2.TabIndex = 5;
-            label2.Text = "计算次数";
+            label2.Text = "模拟次数";
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(349, 441);
+            textBox2.Location = new Point(349, 524);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(68, 23);
+            textBox2.Size = new Size(60, 23);
             textBox2.TabIndex = 6;
-            textBox2.Text = "100000";
+            textBox2.Text = "30000";
             // 
             // button5
             // 
-            button5.Location = new Point(423, 429);
+            button5.Location = new Point(429, 475);
             button5.Name = "button5";
-            button5.Size = new Size(103, 48);
+            button5.Size = new Size(103, 69);
             button5.TabIndex = 7;
             button5.Text = "保存/开始测试";
             button5.UseVisualStyleBackColor = true;
@@ -416,6 +429,8 @@
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(lblInherit);
+            groupBox4.Controls.Add(label19);
             groupBox4.Controls.Add(numericUpDown11);
             groupBox4.Controls.Add(numericUpDown10);
             groupBox4.Controls.Add(numericUpDown9);
@@ -430,10 +445,32 @@
             groupBox4.Controls.Add(label11);
             groupBox4.Location = new Point(12, 334);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(528, 59);
+            groupBox4.Size = new Size(528, 72);
             groupBox4.TabIndex = 9;
             groupBox4.TabStop = false;
             groupBox4.Text = "每次继承剧本因子提供的额外属性";
+            // 
+            // lblInherit
+            // 
+            lblInherit.AutoSize = true;
+            lblInherit.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblInherit.ForeColor = SystemColors.MenuHighlight;
+            lblInherit.Location = new Point(274, 49);
+            lblInherit.Name = "lblInherit";
+            lblInherit.Size = new Size(13, 17);
+            lblInherit.TabIndex = 38;
+            lblInherit.Text = "-";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label19.ForeColor = SystemColors.MenuHighlight;
+            label19.Location = new Point(167, 49);
+            label19.Name = "label19";
+            label19.Size = new Size(116, 17);
+            label19.TabIndex = 37;
+            label19.Text = "每次继承估计属性：";
             // 
             // numericUpDown11
             // 
@@ -544,11 +581,109 @@
             label11.TabIndex = 21;
             label11.Text = "耐";
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.Location = new Point(280, 475);
+            label14.Name = "label14";
+            label14.Size = new Size(65, 20);
+            label14.TabIndex = 10;
+            label14.Text = "事件强度";
+            // 
+            // numericUpDown12
+            // 
+            numericUpDown12.Location = new Point(349, 476);
+            numericUpDown12.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
+            numericUpDown12.Name = "numericUpDown12";
+            numericUpDown12.Size = new Size(60, 23);
+            numericUpDown12.TabIndex = 31;
+            numericUpDown12.Value = new decimal(new int[] { 20, 0, 0, 0 });
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label15.ForeColor = SystemColors.MenuHighlight;
+            label15.Location = new Point(281, 500);
+            label15.Name = "label15";
+            label15.Size = new Size(119, 17);
+            label15.TabIndex = 32;
+            label15.Text = "40%概率 属性/PT+x";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point);
+            label16.Location = new Point(280, 425);
+            label16.Name = "label16";
+            label16.Size = new Size(51, 20);
+            label16.TabIndex = 33;
+            label16.Text = "AI引擎";
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Checked = true;
+            radioButton1.Location = new Point(351, 426);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(50, 21);
+            radioButton1.TabIndex = 34;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "默认";
+            radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(407, 426);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(74, 21);
+            radioButton2.TabIndex = 35;
+            radioButton2.Text = "神经网络";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label17.ForeColor = SystemColors.MenuHighlight;
+            label17.Location = new Point(281, 447);
+            label17.Name = "label17";
+            label17.Size = new Size(234, 17);
+            label17.TabIndex = 36;
+            label17.Text = "神经网络更强更精确，但速度慢，需要N卡";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label18.ForeColor = SystemColors.MenuHighlight;
+            label18.Location = new Point(281, 547);
+            label18.Name = "label18";
+            label18.Size = new Size(203, 17);
+            label18.TabIndex = 37;
+            label18.Text = "默认引擎推荐10w，神经网络推荐3w";
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 300;
+            timer1.Tick += timer1_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(552, 524);
+            ClientSize = new Size(552, 569);
+            Controls.Add(label18);
+            Controls.Add(label17);
+            Controls.Add(radioButton2);
+            Controls.Add(radioButton1);
+            Controls.Add(label16);
+            Controls.Add(label15);
+            Controls.Add(numericUpDown12);
+            Controls.Add(label14);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(button5);
@@ -585,6 +720,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown8).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown7).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown12).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -635,5 +771,16 @@
         private NumericUpDown numericUpDown9;
         private NumericUpDown numericUpDown8;
         private NumericUpDown numericUpDown7;
+        private Label label14;
+        private NumericUpDown numericUpDown12;
+        private Label label15;
+        private Label label16;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
+        private Label label17;
+        private Label lblInherit;
+        private Label label19;
+        private Label label18;
+        private System.Windows.Forms.Timer timer1;
     }
 }

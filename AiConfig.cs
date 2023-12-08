@@ -8,16 +8,18 @@ namespace UmaIDHelper
 {
     public class TestAiScoreConfig
     {
+        public string engine = "testAiConfig";
         public int umaId;
         public int umaStars = 5;
-        public int totalGames;
+        public int totalGames = 50000;
+        public int eventStrength = 20;
         public List<int> cards;
         public List<int> zhongmaBlue;
         public List<int> zhongmaBonus;
         public List<bool> allowedDebuffs;
         public List<int> cardHistory;
     }
-
+    /*
     public class AiConfig
     {
         public bool noColor = false;
@@ -30,4 +32,5 @@ namespace UmaIDHelper
         public bool useWebsocket = true;
         public TestAiScoreConfig testAiScore;
     }
+    */
 }

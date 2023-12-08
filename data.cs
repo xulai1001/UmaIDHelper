@@ -119,10 +119,7 @@ namespace UmaIDHelper
         public static void updateCardHistory(int idWithBreak)
         {
             cardHistory.RemoveAll(x => x == idWithBreak);
-            if (cardHistory.Count < 5)
-                cardHistory.Add(idWithBreak);
-            else
-                cardHistory.Insert(5, idWithBreak);
+            cardHistory = cardHistory.Prepend(idWithBreak).ToList();
         }
     }
 

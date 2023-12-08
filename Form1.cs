@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.CodeDom;
 
 namespace UmaIDHelper
 {
@@ -19,7 +20,8 @@ namespace UmaIDHelper
 
         private void saveConfig(TestAiScoreConfig conf)
         {
-            var settings = new JsonSerializerSettings {
+            var settings = new JsonSerializerSettings
+            {
                 NullValueHandling = NullValueHandling.Ignore,
                 Formatting = Formatting.Indented
             };
@@ -35,20 +37,45 @@ namespace UmaIDHelper
 
         private void runTest()
         {
-            if (!File.Exists("testAiScore.exe"))
+            string binaryFile = "testAiScore.exe";
+            if (radioButton2.Checked)
+                binaryFile = "testAiScoreNN.exe";
+            if (!File.Exists(binaryFile))
             {
-                MessageBox.Show("当前目录下没有testAiScore.exe，请和AI放在同一目录下", "请检查");
+                MessageBox.Show($"未找到测卡引擎({binaryFile})，请和AI放在同一目录下", "请检查");
             }
             else
             {
                 button5.Enabled = false;
-                Process proc = Process.Start("testAiScore.exe");
+                Process proc = Process.Start(binaryFile);
                 proc.EnableRaisingEvents = true;
                 proc.Exited += (sender, e) => button5.Invoke(new MethodInvoker(delegate
                 {
                     button5.Enabled = true;
                 }));
             }
+        }
+
+        private int calcInheritAttribute()
+        {
+            int total = 0;
+            int[] remainBlues = { 0, 5, 12 };
+
+            total += (int)numericUpDown1.Value / 3 * 21 + remainBlues[(int)numericUpDown1.Value % 3];
+            total += (int)numericUpDown2.Value / 3 * 21 + remainBlues[(int)numericUpDown2.Value % 3];
+            total += (int)numericUpDown3.Value / 3 * 21 + remainBlues[(int)numericUpDown3.Value % 3];
+            total += (int)numericUpDown4.Value / 3 * 21 + remainBlues[(int)numericUpDown4.Value % 3];
+            total += (int)numericUpDown5.Value / 3 * 21 + remainBlues[(int)numericUpDown5.Value % 3];
+
+            total += (int)numericUpDown6.Value + (int)numericUpDown7.Value + (int)numericUpDown8.Value
+                   + (int)numericUpDown9.Value + (int)numericUpDown10.Value;
+
+            return total;
+        }
+
+        private void updateInherit()
+        {
+            lblInherit.Text = $"{calcInheritAttribute()} + {numericUpDown11.Value} Pt";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -164,7 +191,8 @@ namespace UmaIDHelper
                     checkBox8.Checked,
                     false
                 },
-                totalGames = Int32.Parse(textBox2.Text)
+                totalGames = Int32.Parse(textBox2.Text),
+                eventStrength = (int)numericUpDown12.Value
             };
             // MessageBox.Show(JsonConvert.SerializeObject(conf));
             // check 2
@@ -179,6 +207,11 @@ namespace UmaIDHelper
         private void Form1_HelpButtonClicked(object sender, CancelEventArgs e)
         {
             new AboutWindow().ShowDialog();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            updateInherit();
         }
     }
 }
